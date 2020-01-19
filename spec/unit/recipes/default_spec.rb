@@ -52,10 +52,6 @@ describe 'node_sample::default' do
       expect(chef_run).to update_apt_update 'update_sources'
     end
 
-    it 'should create a proxy.conf with ' do
-      expect(chef_run)
-    end
-
   end
 
   # context 'When all attributes are default, on CentOS 7' do

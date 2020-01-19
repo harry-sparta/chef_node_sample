@@ -29,3 +29,9 @@ Topics covered:
   - ice cream cones <% %>
   - to print/generate output use ice cream cones with an = sign
     - <%= %>
+
+  ## kitchen.yml
+  This kitchen YAML file runs the sets the virtualisation in the localhost.
+
+  ## kithcen_could.yml
+  This kitchen YAML file (execute with KITCHEN_YML=kitchen_cloud.yml kitchen verify) connects to AWS and creates an EC2 instance to run test. Terminates the instance by running KITCHEN...=... kitchen destroy
