@@ -18,6 +18,11 @@ package 'nginx'
 # npm pm2 install
 nodejs_npm 'pm2'
 
+execute 'ejs mongoose express' do
+  command 'sudo npm install ejs mongoose express'
+  action :run
+end
+
 # resource services
 service 'nginx' do
   action [:start, :enable]
@@ -40,3 +45,24 @@ link '/etc/nginx/sites-enabled/default' do
   action :delete
   notifies :restart, 'service[nginx]'
 end
+
+remote_directory '/home/ubuntu/app' do
+  source 'app'
+  owner 'root'
+  group 'root'
+  mode '0777'
+  files_mode '0777'
+  overwrite true
+  recursive true
+  action :create
+end
+
+# execute 'cd_app_directory' do
+#   command 'cd ~/app'
+#   action :run
+# end
+#
+# execute 'app_start' do
+#   command 'sudo npm start'
+#   action :run
+# end
