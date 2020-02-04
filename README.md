@@ -2,12 +2,10 @@
 
 First cookbook.
 
+## Chef - configuration tool
 Chef commands
 - chef generate cookbook <name_cookbook>
 - chef generate template <name_file.conf>
-
-Kitchen commands
-
 
 Topics covered:
 - file and folder structure
@@ -23,18 +21,19 @@ Topics covered:
   - link
 - Metadata file
 - Using Supermarket
-
-
 - Interpolation in ruby
   - ice cream cones <% %>
   - to print/generate output use ice cream cones with an = sign
     - <%= %>
 
-  ## kitchen.yml
-  This kitchen YAML file runs the sets the virtualisation in the localhost.
+### kitchen.yml
+This kitchen YAML file runs the sets the virtualisation in the localhost.
 
-  ## kithcen_could.yml
-  This kitchen YAML file (execute with KITCHEN_YML=kitchen_cloud.yml kitchen verify) connects to AWS and creates an EC2 instance to run test. Terminates the instance by running KITCHEN...=... kitchen destroy
+### kithcen_cloud.yml
+This kitchen YAML file (execute with KITCHEN_YML=kitchen_cloud.yml kitchen verify) connects to AWS and creates an EC2 instance to run test. Terminates the instance by running KITCHEN...=... kitchen destroy
 
-  ## packer
-  
+## BerksShelf
+Using a Berksfile and the commands 'berks vendor' and 'berks install' to create berks-cookbooks of the node sample application and other cookbooks it is depended on.
+
+## Packer
+Using Packer to build an image with an environment provisioned with Chef's berks-cookbooks. In this case, Amazon Machine Image (AMI) of the AWS was selected to be the image provider.
