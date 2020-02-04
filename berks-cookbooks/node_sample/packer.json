@@ -6,7 +6,7 @@
     },
     "builders": [
         {
-            "ami_name": "harry-li-eng48-nodesample-nodesjs-nginx{{timestamp}}",
+            "ami_name": "harry-li-eng48-nodesjs-nginx{{timestamp}}",
             "instance_type": "t2.micro",
 
             "region": "eu-west-1",
@@ -34,22 +34,8 @@
       "provisioners": [
         {
             "type": "chef-solo",
-            "cookbook_paths": ["./berks-cookbooks"],
+            "cookbook_paths": ["./berks-cookbooks"]
             "run_list": ["node_sample::default"]
-        },
-        {
-            "type": "shell",
-            "inline": ["mkdir /home/ubuntu/appjs"]
-        },
-        {
-            "type": "file",
-            "source": "files/default/app/",
-            "destination": "/home/ubuntu/appjs"
-        },
-        {
-            "type": "shell",
-            "inline": ["cd /home/ubuntu/appjs", "sudo npm install"]
         }
-
       ]
 }
